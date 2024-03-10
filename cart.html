@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <!-- Add any additional CSS or libraries here -->
+    <link rel="stylesheet" href="css/cart.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="container">
+            <h1>Logo</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="category.html">categories</a></li>
+                <li><a href="aboutus.html">About</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="contactUs.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Cart Content -->
+    <section class="cart-section">
+        <div class="container">
+            <h2>Shopping Cart</h2>
+            <div id="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            <div>
+                <button onclick="redirectToCheckout()">Checkout</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h2>About Us</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet est vel ipsum luctus
+                        auctor.</p>
+                </div>
+                <div class="footer-section links">
+                    <h2>Quick Links</h2>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact-form">
+                    <h2>Contact Us</h2>
+                    <form action="#">
+                        <input type="email" name="email" class="text-input contact-input"
+                            placeholder="Your email address">
+                        <textarea name="message" class="text-input contact-input" placeholder="Your message"></textarea>
+                        <button type="submit" class="btn btn-big contact-btn">
+                            <i class="fas fa-envelope"></i>
+                            Send
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Clothing Brand | Designed by Your Name
+        </div>
+    </footer>
+
+    <!-- Add any additional JavaScript here -->
+    <script>
+        // Function to display cart items
+        function displayCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.getElementById('cart-items');
+
+            // Clear previous items
+            cartItemsContainer.innerHTML = '';
+
+            // Loop through each item in the cart
+            cart.forEach(product => {
+                const productDiv = document.createElement('div');
+                productDiv.classList.add('product');
+                productDiv.innerHTML = `
+                    <img src="${product.image}" alt="${product.title}">
+                    <div class="product-details">
+                        <div class="product-title">${product.title}</div>
+                        <div class="product-price">$${product.price}</div>
+                        <div class="remove-button" onclick="removeFromCart('${product.title}')">Remove</div>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(productDiv);
+            });
+        }
+
+        // Function to remove item from cart
+        function removeFromCart(title) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Filter out the item to remove
+            cart = cart.filter(product => product.title !== title);
+
+            // Update local storage with the new cart
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Update the displayed cart
+            displayCart();
+        }
+
+        // Function to redirect to checkout page
+        function redirectToCheckout() {
+            window.location.href = 'checkout.html';
+        }
+
+        // Call displayCart function when the page loads
+        window.onload = displayCart;
+    </script>
+
+
+
+</body>
+
+</html>

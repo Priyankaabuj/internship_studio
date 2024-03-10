@@ -1,0 +1,178 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar Styles */
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+nav h1 {
+    font-size: 24px;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* About Section Styles */
+.about-section {
+    padding: 50px 0;
+}
+
+.about-text h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 18px;
+    color: #555;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Features Section Styles */
+.features-section {
+    padding: 50px 0;
+}
+
+.features h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.feature {
+    margin-bottom: 30px;
+}
+
+.feature h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Testimonials Section Styles */
+.testimonials-section {
+    padding: 50px 0;
+}
+
+.testimonials h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.testimonial {
+    margin-bottom: 30px;
+}
+
+.testimonial p {
+    font-size: 18px;
+    color: #555;
+}
+
+.testimonial cite {
+    font-style: italic;
+    color: #777;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 50px 0;
+    bottom: 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-section {
+    flex: 1;
+    margin-right: 40px;
+}
+
+.footer-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.footer-section ul {
+    list-style-type: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-section.contact-form {
+    margin-right: 0;
+}
+
+.contact-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.btn {
+    background-color: #555;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #777;
+}
+
+/* Footer Bottom Styles */
+.footer-bottom {
+    background-color: #222;
+    text-align: center;
+    padding: 20px 0;
+    color: #fff;
+    font-size: 14px;
+}

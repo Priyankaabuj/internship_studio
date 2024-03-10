@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product View</title>
+    <link rel="stylesheet" href="css/viewProduct.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="container">
+            <h1>Logo</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="category.html">categories</a></li>
+                <li><a href="aboutus.html">About</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="contactUs.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Product Details -->
+    <section class="product-view-section">
+        <div class="container">
+            <h2 id="product-title">Product Title</h2>
+            <div class="product-images" id="product-images">
+                <!-- Product Images -->
+                <img src="" alt="Product Image" id="product-image">
+            </div>
+            <div class="product-description" id="product-description">
+                <!-- Product Description -->
+                <p id="product-description-content">Description of the product goes here.</p>
+            </div>
+            <div class="product-info">
+                <!-- Product Price and Ratings -->
+                <span id="product-price">$20</span>
+                <div class="product-ratings" id="product-ratings">
+                    <!-- Ratings Stars -->
+                    <span class="rating">&#9733;</span>
+                    <span class="rating">&#9733;</span>
+                    <span class="rating">&#9733;</span>
+                    <span class="rating">&#9733;</span>
+                    <span class="rating">&#9734;</span>
+                </div>
+            </div>
+            <button id="add-to-cart">Add to Cart</button>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h2>About Us</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet est vel ipsum luctus
+                        auctor.</p>
+                </div>
+                <div class="footer-section links">
+                    <h2>Quick Links</h2>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact-form">
+                    <h2>Contact Us</h2>
+                    <form action="#">
+                        <input type="email" name="email" class="text-input contact-input"
+                            placeholder="Your email address">
+                        <textarea name="message" class="text-input contact-input" placeholder="Your message"></textarea>
+                        <button type="submit" class="btn btn-big contact-btn">
+                            <i class="fas fa-envelope"></i>
+                            Send
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Clothing Brand | Designed by Your Name
+        </div>
+    </footer>
+
+    <!-- Add any additional JavaScript here -->
+    <script>
+        // Function to extract query parameters from URL
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        // Function to update product details on the Product View Page
+        function updateProductDetails() {
+            // Retrieve product details from query parameters
+            const title = getParameterByName('title');
+            const image = getParameterByName('image');
+            const description = getParameterByName('description');
+            const price = getParameterByName('price');
+
+            // Update the HTML elements with the product details
+            document.getElementById('product-title').textContent = title;
+            document.getElementById('product-image').src = image;
+            document.getElementById('product-description-content').textContent = description;
+            document.getElementById('product-price').textContent = `$${price}`;
+        }
+
+        // Call the function to update product details when the page loads
+        window.onload = updateProductDetails;
+
+        // Function to add a product to the cart
+        document.getElementById('add-to-cart').addEventListener('click', function () {
+            const title = document.getElementById('product-title').textContent;
+            const image = document.getElementById('product-image').src;
+            const description = document.getElementById('product-description-content').textContent;
+            const price = parseFloat(document.getElementById('product-price').textContent.slice(1));
+
+            // Create an object representing the product
+            const product = {
+                title: title,
+                image: image,
+                description: description,
+                price: price
+            };
+
+            // Retrieve the cart from local storage or create a new empty cart
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Add the product to the cart
+            cart.push(product);
+
+            // Store the updated cart in local storage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Alert the user that the product has been added to the cart (you can replace this with a more user-friendly notification)
+            alert('Product added to cart');
+
+            // Optionally, you can navigate to the cart page
+            window.location.href = 'cart.html';
+        });
+    </script>
+</body>
+
+</html>
