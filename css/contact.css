@@ -18,7 +18,7 @@ nav {
     padding: 10px 0;
 }
 
-.container {
+.nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;

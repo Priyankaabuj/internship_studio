@@ -42,9 +42,33 @@ nav ul li a {
     text-decoration: none;
 }
 
-/* About Section Styles */
 .about-section {
     padding: 50px 0;
+    /* Adjust padding as needed */
+    text-align: center;
+    /* Center-align content */
+    color: #fff;
+    /* Text color */
+}
+
+.about-section .container {
+    max-width: 1200px;
+    /* Limit the width of the container */
+    margin: 0 auto;
+    /* Center the container */
+}
+
+.about-content {
+    display: flex;
+    justify-content: space-around;
+    /* Align content horizontally */
+    align-items: center;
+    /* Align content vertically */
+}
+
+.about-text {
+    flex: 1;
+    /* Take up remaining space */
 }
 
 .about-text h2 {
@@ -52,39 +76,25 @@ nav ul li a {
     margin-bottom: 20px;
 }
 
+.about-text h2:hover {
+    color: yellow;
+    transition: color 0.3s ease;
+}
+
 .about-text p {
     font-size: 18px;
-    color: #555;
 }
 
+/* Adjust styles for the about image */
 .about-image img {
     max-width: 100%;
-    height: auto;
+    /* Ensure the image doesn't exceed its container */
+    height: 100%;
+    /* Maintain aspect ratio */
+    border-radius: 10px;
+    /* Optional: Add rounded corners */
 }
 
-/* Features Section Styles */
-.features-section {
-    padding: 50px 0;
-}
-
-.features h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-.feature {
-    margin-bottom: 30px;
-}
-
-.feature h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.feature p {
-    font-size: 16px;
-    color: #555;
-}
 
 /* Testimonials Section Styles */
 .testimonials-section {
@@ -115,7 +125,7 @@ nav ul li a {
     background-color: #333;
     color: #fff;
     padding: 50px 0;
-    bottom: 0;
+    margin-top: 1%;
 }
 
 .footer-content {

@@ -109,6 +109,11 @@ nav ul li a {
     /* Scale the image to 110% on hover */
 }
 
+.latest-products h2 {
+    text-align: center;
+    margin-bottom: 1%;
+}
+
 .product-container {
     display: flex;
     flex-wrap: wrap;
@@ -193,6 +198,7 @@ nav ul li a {
 
 .feature img {
     width: 200px;
+    height: 200px;
 }
 
 /* Footer Styles */
